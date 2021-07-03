@@ -1,0 +1,10 @@
+- name: install epel-release
+  yum:
+    name: epel-release
+    state: present
+
+- name: install supervisor for centos
+  yum:
+    enablerepo: epel
+    name:
+      - supervisor

@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  ansible:
+    build: ansible
+    hostname: ansible
+    volumes:
+      - ./:/workdir
+  ubuntu01:
+    build: ubuntu
+    hostname: ubuntu01
+  ubuntu02:
+    build: ubuntu
+    hostname: ubuntu02
+  centos01:
+    build: centos
+    hostname: centos01
+  centos02:
+    build: centos
+    hostname: centos02

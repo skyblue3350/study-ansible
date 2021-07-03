@@ -1,0 +1,4 @@
+- name: install supervisor for ubuntu
+  apt:
+    pkg:
+      - supervisor

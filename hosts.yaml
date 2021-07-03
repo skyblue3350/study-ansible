@@ -1,0 +1,14 @@
+all:
+  children:
+    ubuntu:
+      hosts:
+        ubuntu01:
+        ubuntu02:
+      vars:
+        BASE_IMAGE: ubuntu
+    centos:
+      hosts:
+        centos01:
+        centos02:
+      vars:
+        BASE_IMAGE: centos

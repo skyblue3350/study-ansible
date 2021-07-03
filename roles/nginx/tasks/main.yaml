@@ -1,0 +1,23 @@
+- name: install nginx for ubuntu
+  apt:
+    pkg:
+      - nginx
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+- name: install nginx for centos
+  yum:
+    name:
+      - nginx
+  when: ansible_distribution == "CentOS" or ansible_distribution == "Red Hat"
+
+- name: copy supervisor conf
+  copy:
+    src: files/supervisor/nginx.conf
+    dest: /etc/supervisor/conf.d/nginx.conf
+
+- name: start nginx
+  shell: supervisord -c /etc/supervisor/conf.d/nginx.conf
+
+- name: wait for nginx port 80
+  wait_for:
+    port: 80

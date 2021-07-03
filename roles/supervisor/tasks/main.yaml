@@ -1,0 +1,13 @@
+- include: ubuntu.yaml
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+- include: centos.yaml
+  when: ansible_distribution == "CentOS" or ansible_distribution == "Red Hat"
+
+- name: create supervisor conf dir
+  file:
+    path: /etc/supervisor/conf.d/
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
